@@ -2,7 +2,18 @@
 
 ## Shiny dashboard for wearable Garmin data (Team Lead: Bob Gore) 
 
-A Garmin wearable device captures significant health data, from sleep cycles to stress levels during the day and heart rates. We have aggregated data already: now we need to visualize. The goal is to build a dashboard, probably using Shiny, which physicians could use to visualize these data at different levels of granularity (days versus minutes), by individual patient versus group mean, and for particular days, such as days the patient is known to have had a complication.  
+Over 200 million wearable sensing devices (e.g., fitbit, Garmin, and Apple Watch) are in use worldwide, and these represent the future of outpatient medical monitoring. With remote monitoring, a cancer treatment team could reach out to a patient who is showing subtle warning signs. This could save lives or prevent complications from becoming severe.
+
+But there is no easy way for a physician to send a patient home with a device and then view the stream of data. Furthermore, the data visualizations provided by these devices are not optimized for medical monitoring. This project will address a critical mHealth gap by developing a customized solution that could be field tested among patients and physicians here at Moffitt Cancer Center.
+
+This hackathon project will begin with a harmonized dataset involving Garmin data from 15 patients who have been followed post-surgically. The dataset also includes information about which patients had post-surgical complications, and the timing of those complications. 
+
+The hackathon team will start with the harmonized data and develop a dashboard that would allow a physician to choose which type of data to view (activity level, physiologic stress, heart rate, steps, or sleep) and superimpose information about known complications (information that is part of the harmonized dataset). Physicians may want to be able to view the data at different time scales and over different intervals (by setting a start and stop day, for example, or by looking closely at certain hours of a particular day). Physicians may want to choose which data streams to show (e.g., activity, sleep, heart rate) and whether to include trendlines using the patient's own baseline or confidence intervals (i.e., process control charts). They may also wish to view only summary data, such as the number of hours of sleep the patient has per night, the number of steps per day, or the percent of the time a patient's heart rate is out of certain bounds. 
+
+Using these considerations and parameters, the team will develop a flexible dashboard to allow physicians to choose how to configure their own data views, given the harmonized data set that the team will begin with. Although Garmin data streams will be used for the visualization, it is expected that future development will include the ability to draw on data from other devices (Apple Watch, Fitbit). 
+
+Skills needed include only the ability to imagine data visualizations, basic coding skills in any computer language (e.g. R, SAS, Python), and familiarity with at least one dashboard visualization tool (e.g. Rstudio, plot.ly).
+  
 
 ## Alexa App to capture Edmonton Symptom Assessment System (ESAS) (Team Lead: Rodrigo Carvajal) 
 
