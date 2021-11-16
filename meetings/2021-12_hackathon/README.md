@@ -49,7 +49,7 @@ The list of projects for this year's hackathon [can be found here](https://githu
 
 ### Day 2 (Friday, December 10th, 2021)
 - **?? - 3pm** Teams continue working
-- **3pm - 4:30pm** Hackathon Wrap-up (LINK TBD)
+- **3pm - 5pm** Hackathon Wrap-up (LINK TBD)
   - Project demonstrations
   - Judges convene briefly to pick the winning project
   - Winners announced, prizes awarded
