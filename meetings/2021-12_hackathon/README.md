@@ -41,7 +41,7 @@ The list of projects for this year's hackathon [can be found here](https://githu
 ## Agenda
 
 ### Day 1 (Thursday December 9th, 2021)
-- **9am - 9:15am** Hackathon Kickoff (LINK TBD)
+- **9am - 9:15am** Hackathon Kickoff (Zoom link: https://moffitt.zoom.us/j/93071583083)
   - Introduce teams and projects
   - Time for questions
   - Break into teams and begin hacking
@@ -49,7 +49,7 @@ The list of projects for this year's hackathon [can be found here](https://githu
 
 ### Day 2 (Friday, December 10th, 2021)
 - **?? - 3pm** Teams continue working
-- **3pm - 5pm** Hackathon Wrap-up (LINK TBD)
+- **3pm - 5pm** Project Presentations and Awards (Zoom link https://moffitt.zoom.us/j/95742651005)
   - Project demonstrations
   - Judges convene briefly to pick the winning project
   - Winners announced, prizes awarded
