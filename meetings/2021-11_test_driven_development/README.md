@@ -16,3 +16,5 @@ The only pre-requisites needed are to know the basics of programming, like under
 
 *Editor's note:*  **testthat** is the most popular unit testing package for R: https://testthat.r-lib.org/
 
+### Materials
+* [Slides from the presentation.](https://github.com/pstew/biodataclub/raw/master/meetings/2021-11_test_driven_development/Software%20Testing.pptx)
