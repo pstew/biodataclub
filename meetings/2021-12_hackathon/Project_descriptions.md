@@ -61,7 +61,7 @@ This database would then be put on the web for users all over the world to use. 
 
 **Programming background:** Database design knowledge. Web-development experience helpful 
 
-## A deep learning inference graphical user interface platform (Team Lead: Ching Nung Lin) 
+## A deep learning inference graphical user interface platform (Team Leads: Ching Nung Lin, Dung-Tsa Chen, Natarajan Raghunand) 
 
 Deep Learning for analysis of medical images is a hot research area. During model development, it is crucial to perform visual inspection of the performance of trained models. In this regard there is a paucity of easy-to-use visualization tools to verify the quality of models during and after training. We propose to build a GUI platform to permit researchers to input data and view models results without the need for de novo programming. 
 
