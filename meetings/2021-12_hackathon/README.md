@@ -19,7 +19,7 @@ The list of projects for this year's hackathon [can be found here](https://githu
 - The team leader will be responsible for delegating tasks to team members.
 - Teams will have approximately 1.5 days to develop a deliverable product. 
 - Each team will have 5 minutes to present their final product on Friday. Product demonstrations or slides will be acceptable.
-- A panel of judges (Drs. Peter Kanetsky, John Koomen, Dana Rollison, John Schatzle, AC Tan) will pick the winning project. 
+- A panel of judges (Drs. Peter Kanetsky, John Koomen, Issam El Naqa, John Schatzle, AC Tan) will pick the winning project. 
 - The winning project will be judged by the following categories:
   - Reproducibility
   - Usability
