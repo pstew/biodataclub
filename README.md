@@ -34,7 +34,7 @@ December 2021: 2021 Hackathon
 
 January 2022: No meeting.
 
-February 2022: TBD
+February 2022: Tim Shaw (GenomePaint)
 
 March 2022: TBD
 
