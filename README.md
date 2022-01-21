@@ -32,4 +32,16 @@ November 2021: Guillermo Gonzalez-Calderon (Introduction to Testing)
 
 December 2021: 2021 Hackathon
 
-January 2021: Chia-Ho Cheng (Introducton to Seurat)
+January 2022: No meeting.
+
+February 2022: TBD
+
+March 2022: TBD
+
+April 2022: TBD
+
+May 2022: Jordan Creed/Alex Soupir
+
+June 2022: TBD
+
+July 2022: TBD
