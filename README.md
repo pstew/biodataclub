@@ -38,7 +38,7 @@ February 2022: Tim Shaw (GenomePaint)
 
 March 2022: TBD
 
-April 2022: TBD
+April 2022: Miguel Betin Montes
 
 May 2022: Jordan Creed/Alex Soupir
 
