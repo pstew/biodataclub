@@ -17,3 +17,7 @@ You’ve probably heard the terms API, Public API, or Web API before. An API (o
 In this session we will learn about the basic concepts of modern API’s and also how to interact with them.
 
 No previous knowledge is required. Very basic Python will be used.
+
+### Meeting Materials
+
+* Postman API platform: https://www.postman.com/
