@@ -21,3 +21,4 @@ No previous knowledge is required. Very basic Python will be used.
 ### Meeting Materials
 
 * Postman API platform: https://www.postman.com/
+* Slides: https://github.com/pstew/biodataclub/blob/master/meetings/2022-04_intro_apis/API%E2%80%99s%20INTRO.pptx
