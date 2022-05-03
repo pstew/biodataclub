@@ -17,7 +17,7 @@ June 2022: Richie Reich (Moffitt Initiative on Rigor and Reproducibility in Onco
 
 July 2022: Rhoda Gai-Cherry (Patient reported outcomes data from wearable devices)
 
-August 2022: TBD
+August 2022: Olivier Teytaud (topic TBA)
 
 September 2022: TBD
 
