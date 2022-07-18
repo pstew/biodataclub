@@ -21,7 +21,7 @@ August 2022: Olivier Teytaud (topic TBA)
 
 September 2022: TBD
 
-October 2022: TBD
+October 2022: Denise Kalos (topic TBA)
 
 November 2022: TBD
 
