@@ -19,7 +19,7 @@ July 2022: Rhoda Gai-Cherry (Patient reported outcomes data from wearable device
 
 August 2022: Olivier Teytaud (topic TBA)
 
-September 2022: TBD
+September 2022: Zuguang Yu (ComplexHeatmap R package)
 
 October 2022: Denise Kalos (topic TBA)
 
