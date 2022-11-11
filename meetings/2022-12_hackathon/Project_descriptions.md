@@ -1,10 +1,8 @@
 # Hackathon Projects 2022
 
-## KLART
+## Klart Lists Accessible Research Tools (KLART)
 
 ### Project Lead: [Anders Berglund](mailto:anders.berglund@moffitt.org)
-
-**K**lart **L**ists **A**ccessible **R**esearch **T**ools
 
 We are in our daily work, as a bioinformatician, biostatistician or as scientists in general, relying on other researchers tools and databases, i.e. “standing on the shoulders of giants”. We use these tools to simplify our work, but also to make sure that we do the best and correct analysis. One of the challenges is the vast number of new tools published every year with only a few surviving the test of time. A first pass to find out if a new tool is useful and reliable takes about a day and requires testing it with real data.
 
@@ -97,16 +95,16 @@ http://bionlp.bcgsc.ca/civicmine/
 
 This project will aim to build graphs from various omics datasets and then quantitatively analyze their relationships with each other to unravel the underlying biological phenomena (such as cancer) captured by multiple omics data. After building initial graphs (i.e., adjacency matrices) and estimating their features for each dataset, we will use Graph Neural Networks to finetune the structure and features of these graphs for the specified outcome, e.g., survival. The project will also involve building visualization at each stage of data processing. The team will share pre-processed and curated datasets, machine learning models, and basic visualization codes.
 
-**Technical Specifications**: PyTorch framework, high-dimensional omics data
+**Technical Specifications**: Familiarity with the PyTorch framework, graphical neural networks, or high-dimensional omics data
 
 **Programming Languages**: Python
 
-## A web-based visualization tool for proteomics/metabolomics data
+## A web-based visualization tool for proteomics and metabolomics data
 
 ### Project Lead: [Inna Smalley](mailto:Inna.Smalley@moffitt.org)
 
 **Background**: The goal of this project is to develop a web-based visualization tool for proteomics and metabolomics data. There is a fairly standardized pipeline for mass spectrometry data analysis a Moffitt, so this work will benefit Moffitt investigators without programing experience. The goal will be for someone without a programming/informatics background to take data, upload the data into the tool/interface, and have some QC and visualization done based on some basic comparison selections. The Smalley Lab has  plenty of cancer datasets that they would be happy to share to use as examples for the development.
 
-**Technical Specifications**: R Shiny, proteomics, metabolomics
+**Technical Specifications**: Familiarity with R Shiny, proteomics, and/or metabolomics
 
 **Programming Languages**: R
