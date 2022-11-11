@@ -84,8 +84,8 @@ We will use the quantum feature map representations to sample the most putative 
 * Natural Language Processing
    * Compound-Cancer-Knowledge Base https://knowledgebase.microdiscovery.de/heatmap
    * Text mined biomarkers in cancer for curation into the CIViC database. http://bionlp.bcgsc.ca/civicmine/
-* Programming Language: 
-   * Python, R.
+
+**Programming background**: Python, R.
 
 ## Generating, visualizing, and quantitatively analyzing graphs of multi-omics data
 
@@ -95,7 +95,7 @@ This project will aim to build graphs from various omics datasets and then quant
 
 **Technical Specifications**: Familiarity with the PyTorch framework, graphical neural networks, or high-dimensional omics data
 
-**Programming Languages**: Python
+**Programming background**: Python
 
 ## A web-based visualization tool for proteomics and metabolomics data
 
@@ -107,4 +107,4 @@ Project title: Interactive omics data visualization and analytics tool for non-p
  
 **Technical specifications**: It may be helpful if people are familiar with Proteomic/metabolomic datasets and the typical BBSR pipeline for processing these datasets. Anyone who is familiar with the current VEMO or ISCVA tools. I would be happy to provide example datasets for this project, we have many we could use for development and proof of principle demonstration.  
  
-**Programming languages needed to work on the project**: R/Shiny. Happy to take on anyone who is interested in working on this project, regardless of previous expertise
+**Programming background**: R/Shiny. Happy to take on anyone who is interested in working on this project, regardless of previous expertise
