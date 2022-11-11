@@ -62,7 +62,7 @@ Familiarity with web development, either backend or frontend.
  
 **Approach**: Given that the human genome has ~20,000 genes, there are $2^{20,000}=4\times 10^{6020}$$ candidate biomarkers for one pathway of interest. Given a full set of quantified genes $\mathcal{G}=\{G_1, \dots, G_k\}$ with associated molecular features set $\mathcal{X}=\{X_1, \dots, X_k\}$ such as mRNA, RNA expression, or DNA methylation. We aim to find a subset of genes whose feature set $\mathbb{S}=\{ X_i \}_{i=1}^k$ for $k \leq m$ . The number of all possible combinations for biomarker sets (including ∅) is given by 
 
-$$2^{m}=\sum_{i=0}^{m}  m \choose i$$
+$2^{m}=\sum_{i=0}^{m}$  $m \choose i$
 
 We will use the quantum feature map representations to sample the most putative drivers for uni- and multi-targeted pathways of interest. We will use a quantum neural network as a probabilistic sampler to score genes based on Mutual Information-based criteria. Quantum Computing (QC) provides continuous computational platforms and can accelerate (exponentially) some of the intrinsically difficult problems for classical computers. We also hope to overcome the black-box property (unknown and intractable) of current AI by claiming that machines must not only learn from data but also teach by explaining their neural signals to humans. 
 
