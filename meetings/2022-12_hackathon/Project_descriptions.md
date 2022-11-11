@@ -82,12 +82,10 @@ We will use the quantum feature map representations to sample the most putative 
 * Classical ML and Statistical Analysis
    * https://scikit-learn.org/stable/
 * Natural Language Processing
-   * Compound-Cancer-Knowledge Base
-https://knowledgebase.microdiscovery.de/heatmap
-   * Text mined biomarkers in cancer for curation into the CIViC database.
-http://bionlp.bcgsc.ca/civicmine/
+   * Compound-Cancer-Knowledge Base https://knowledgebase.microdiscovery.de/heatmap
+   * Text mined biomarkers in cancer for curation into the CIViC database. http://bionlp.bcgsc.ca/civicmine/
 * Programming Language: 
-	  * Python, R.
+   * Python, R.
 
 ## Generating, visualizing, and quantitatively analyzing graphs of multi-omics data
 
