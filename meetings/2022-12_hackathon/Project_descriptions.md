@@ -71,23 +71,23 @@ We will use the quantum feature map representations to sample the most putative 
 **Technical specifications**:
 
 * Quantum Computing:
- * IBM-Q: https://quantum-computing.ibm.com/
- *	Qiskit: https://qiskit.org/
- *	Strawberry Field: https://strawberryfields.ai/
- *	Pennylane: https://pennylane.ai/
+   * IBM-Q: https://quantum-computing.ibm.com/
+   * Qiskit: https://qiskit.org/
+   * Strawberry Field: https://strawberryfields.ai/
+   * Pennylane: https://pennylane.ai/
 * Classical Deep Learning:
- *	PyTorch: https://pytorch.org/
- *	Tensorflow: https://www.tensorflow.org/
- *	Deep-Survival: https://github.com/jaredleekatzman/* DeepSurv
+   * PyTorch: https://pytorch.org/
+   * Tensorflow: https://www.tensorflow.org/
+   * Deep-Survival: https://github.com/jaredleekatzman/* DeepSurv
 * Classical ML and Statistical Analysis
- * https://scikit-learn.org/stable/
+   * https://scikit-learn.org/stable/
 * Natural Language Processing
- * Compound-Cancer-Knowledge Base
+   * Compound-Cancer-Knowledge Base
 https://knowledgebase.microdiscovery.de/heatmap
- * Text mined biomarkers in cancer for curation into the CIViC database.
+   * Text mined biomarkers in cancer for curation into the CIViC database.
 http://bionlp.bcgsc.ca/civicmine/
 * Programming Language: 
-	* Python, R.
+	  * Python, R.
 
 ## Generating, visualizing, and quantitatively analyzing graphs of multi-omics data
 
