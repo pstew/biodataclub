@@ -14,4 +14,5 @@ The goal is to introduce the audience to robust statistics, a rather under-utili
 
 ###  Files
 
-* 
+* [hypothesize_example.ipynb](https://github.com/pstew/biodataclub/raw/master/meetings/2022-11_robust_statistics/hypothesize_example.ipynb)
+* [wrs2_example.Rmd](https://github.com/pstew/biodataclub/raw/master/meetings/2022-11_robust_statistics/wrs2_example.Rmd)
