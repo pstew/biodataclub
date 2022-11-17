@@ -1,0 +1,53 @@
+---
+title: "wrs2_example"
+output: html_document
+date: '2022-11-16'
+---
+
+``````{r setup, include=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
+
+```{r, load-packages, include=FALSE}
+library(readxl)
+library(tidyverse)
+library(ggplot2)
+library(WRS2)
+library(robust)
+library(faraway)
+```
+
+```{r, include = FALSE}
+data(gala, package = "faraway")
+```
+
+#Mean and trimmed mean
+
+```{r}
+mean(gala$Area)
+mean(gala$Area, trim = 0.1)
+
+sd(gala$Area) / sqrt(length(gala$Area))
+trimse(gala$Area, 0.1)
+```
+#Winsorized mean
+```{r}
+winmean(gala$Area)
+winse(gala$Area)
+```
+#M-estimators
+```{r}
+mest(gala$Area)
+mestse(gala$Area)
+```
+
+
+#Robust regression 
+```{r}
+rob_reg <- glmRob(Species ~ log(Area) + log(Adjacent), family = poisson, data = gala)
+summary(rob_reg)
+
+wts <- rob_reg$weights
+names(wts) <- row.names(gala)
+head(sort(wts))
+```
