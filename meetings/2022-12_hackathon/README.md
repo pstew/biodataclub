@@ -27,7 +27,7 @@ The list of projects for this year's hackathon [can be found here](https://githu
 - The team leader will be responsible for delegating tasks to team members.
 - Teams will have approximately 1.5 days to develop a deliverable product. 
 - Each team will have 5 minutes to present their final product on Friday. Product demonstrations or slides will be acceptable.
-- A panel of judges (Drs. Peter Kanetsky, John Koomen, Issam El Naqa, John Schatzle, and TBD) will pick the winning project. 
+- A panel of judges (Drs. Peter Kanetsky, John Koomen, Issam El Naqa, John Schatzle) will pick the winning project. 
 - The top 3 projects will be picked by the judges using the following items:
   - Reproducibility
   - Usability
@@ -49,7 +49,7 @@ The list of projects for this year's hackathon [can be found here](https://githu
 ## Agenda
 
 ### Day 1 (Thursday December 8th, 2022)
-- **9am - 9:15am** Hackathon Kickoff (Zoom link: TBD)
+- **9am - 9:15am** Hackathon Kickoff (Zoom link: https://moffitt.zoom.us/j/95630513817)
   - Introduce teams and projects
   - Time for questions
   - Break into teams and begin hacking
@@ -57,7 +57,7 @@ The list of projects for this year's hackathon [can be found here](https://githu
 
 ### Day 2 (Friday, December 9th, 2022)
 - **?? - 3pm** Teams continue working
-- **3pm - 5pm** Project Presentations and Awards (Zoom link TBD)
+- **3pm - 5pm** Project Presentations and Awards (Zoom link: https://moffitt.zoom.us/j/98089438126)
   - Project demonstrations
   - Judges convene briefly to pick the winning project
   - Winners announced, prizes awarded
