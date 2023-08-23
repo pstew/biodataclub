@@ -3,26 +3,14 @@
 
 ### Tentative schedule:
 
-January 2022: No meeting.
+September 2023: TBA
 
-February 2022: Tim Shaw (GenomePaint)
+October 2023: Josh Starmer of StatQuest
 
-March 2022: No meeting.
+November 2023: Oscar Ospina (spatial transcriptomics)
 
-April 2022: Miguel Betin Montes
+December 2023: no meeting happy holidays
 
-May 2022: Jordan Creed/Alex Soupir
+January 2023: TBA
 
-June 2022: Richie Reich (Moffitt Initiative on Rigor and Reproducibility in Oncology Research (MIRROR))
-
-July 2022: Rhoda Gai-Cherry (Patient reported outcomes data from wearable devices)
-
-August 2022: Olivier Teytaud (topic TBA)
-
-September 2022: Zuguang Gu (ComplexHeatmap R package)
-
-October 2022: Denise Kalos (topic TBA)
-
-November 2022: TBD
-
-December 2022: Hackathon
+February 2023: Hackathon!!!
