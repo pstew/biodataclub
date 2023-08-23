@@ -5,7 +5,7 @@
 
 September 2023: TBA
 
-October 2023: [https://www.youtube.com/c/joshstarmer] (Josh Starmer of StatQuest)
+October 2023: [Josh Starmer of StatQuest] (https://www.youtube.com/c/joshstarmer)
 
 November 2023: Oscar Ospina (spatial transcriptomics)
 
