@@ -11,6 +11,10 @@ November 2023: Oscar Ospina (spatial transcriptomics)
 
 December 2023: no meeting happy holidays
 
-January 2023: TBA
+January 2024: TBA
 
-February 2023: Hackathon!!!
+February 2024: Hackathon!!!
+
+March 2024: 
+
+April 2024:
