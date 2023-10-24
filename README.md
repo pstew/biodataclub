@@ -11,10 +11,10 @@ November 2023: Oscar Ospina (spatial transcriptomics)
 
 December 2023: no meeting happy holidays
 
-January 2024: TBA
+January 2024: Dr. Tong Wang (predicting metabolomic profiles based on microbiome compositions and dietary compositions via both mechanistic models and machine learning methods)
 
-February 2024: Hackathon!!!
+February 2024: Hackathon???
 
-March 2024: 
+March 2024: Guillermo?
 
 April 2024:
