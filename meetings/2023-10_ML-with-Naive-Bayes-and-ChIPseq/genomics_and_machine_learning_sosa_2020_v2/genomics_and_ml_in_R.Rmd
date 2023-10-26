@@ -1,0 +1,475 @@
+---
+title: "Machine Learning, a Microscope for Genomics"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## (A practical demonstration in R)
+
+The goal of this notebook is to demonstrate how a very simple machine learning algorithm can provide insights into a relatively complicated genomic dataset. Specifically, we will use **Naive Bayes** to predict whether or not a gene is active based on histone modifications near its **Transcriptional Start Site (TSS)**. 
+
+<img src="./image_for_notebook/image_for_notebook.001.png">
+
+Because these datasets are so large (there are over 20,000 protein coding genes in the human genome), going through them by hand and observing correlations with gene activity is not possible. However, machine learning allows us to find correlations and identify active genes. In my mind, this makes machine learning a 21st century tool for science in much the same way that a microscope helped researchers in the 19th and 20th centuries.
+
+This tutorial uses data from [The Encode Project](https://www.encodeproject.org/) derived from a cell line called [K562](https://en.wikipedia.org/wiki/K562_cells), which are human leukemia cells. First, I downloaded [total RNA-seq](https://www.encodeproject.org/files/ENCFF553DDU/@@download/ENCFF553DDU.tsv) data to identify active and inactive genes. This will allow us to determine if our simple machine learning method works or not. And, in order to make predictions, I downloaded ChIP-seq data for the following five histone modifications: 
+
+* [H3K27me3](https://www.encodeproject.org/files/ENCFF700RBU/@@download/ENCFF700RBU.bed.gz)
+* [H3K36me3](https://www.encodeproject.org/files/ENCFF028HJF/@@download/ENCFF028HJF.bed.gz)
+* [H3K4me1](https://www.encodeproject.org/files/ENCFF501DZN/@@download/ENCFF501DZN.bed.gz)
+* [H3K4me3](https://www.encodeproject.org/files/ENCFF500EUY/@@download/ENCFF500EUY.bed.gz)
+* [H3K9me3](https://www.encodeproject.org/files/ENCFF954LYH/@@download/ENCFF954LYH.bed.gz)
+
+All datasets were aligned to [GRCh38](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.26/), which is a version of the human genome curated by the [Genome Reference Consortium](https://www.ncbi.nlm.nih.gov/grc).
+
+---
+
+## Load (and possibly install) Packages to do the Work
+
+Even though *R* is designed from the ground up for data analysis and pretty much
+everything we need is built into the base language, we still need to add some functionality to get this job done. *NOTE:* If you don't have the packages, you only need to install them, with `install.packages()`, once. After that initial installation, all we need to do is load the packages with `library()` each time we start up R and want to run this code.
+
+```{r message=FALSE, warning=FALSE}
+# install.packages("naivebayes") ## the naive bayes package does... Naive Bayes
+library(naivebayes) 
+# install.packages("caret") ## for the confusion matrix
+library(caret)
+# install.packages("e1071") ## also for the confusion matrix
+library(e1071)
+##
+## We also want to load ggplot2 (install if you don't already have it)
+## so that our graphs look nice...
+# install.packages("ggplot2")
+library(ggplot2)
+# install.packages("cowplot") # and cowplot makes ggplot2 look even better.
+library(cowplot) 
+theme_set(theme_cowplot())
+```
+---
+
+## Import the RNA-seq data
+
+First, let's load in the RNA-seq data. This means we will read the data into a DataFrame, The data are organized in rows and columns and each row can contain a mixture of text and numbers.
+
+```{r import}
+rnaseq <- read.delim(file="rnaseq.tsv", sep="\t", stringsAsFactors=FALSE, header=TRUE)
+```
+
+Now that we have loaded the data into a **DataFrame** called **rnaseq**, let's look at the first five rows using the `head()` function:
+
+```{r heda(rnaseq)}
+head(rnaseq)
+```
+
+OK, so the first thing we see are `gene_ids` that are just numbers and not gene names. Depending on whether or not we also have the gene coordinates (chromosome number and position), this could be a problem. Looking at the other columns, I do not see gene coordinates so we have to figure out what these numbers mean and how we can translate them into gene names, and, ultimately, how those gene names can be associated with genomic coordinates.
+
+Fortunately, a quick google search Google search on the terms "encode gene id to gene name" told me that if a `gene_id` is just a number, then it corresponds to **tRNA** and **pseudo_tRNA** sequences, and this is confirmed by the length of these genes (which are all less than 100 bp). 
+I then read that if we scrolled down a bunch, we will see **ENSEMBL** gene ids like `ENSG00000000003.10`. So let's look and see if we can find the **ENSEMBL** gene ids. We'll do this by first determining how many genes are in the file using printing out the number of rows in the DataFrame with `nrow()`.
+
+```{r nrow}
+nrow(rnaseq)
+```
+
+Since there are 58,540 rows in this file, we can pick a few in the middle to see if there have proper ENSEMBL gene ids.
+
+```{r}
+rnaseq[20000:20005,]
+```
+
+Hooray!!! When we look at the rows in the middle of the DataFrame, we see proper ENSEMBL gene ids. We can use these to determine the **Transcription Start Sites (TSSs)** for each gene. Once we identify the TSSs, we can determine if the ChIP-seq data is enriched in those regions and use machine learning to determine if those enriched sites correlate with gene activity or not. However, first let's remove **tRNA** and **pseudo_tRNA** data, since we can not associate those numeric IDs with a corresponding TSS. We can do this by selecting all of the `gene_ids` that start with **ENSG** and putting them into a new DataFrame called `ensembl_gene_df`.
+
+```{r}
+ensembl_gene <- subset(rnaseq, grepl("ENSG", gene_id, perl=TRUE))
+## Alternatively, we could have written
+## ensembl_gene <- rnaseq[grepl("ENSG", rnaseq$gene_id, perl=TRUE)),]
+head(ensembl_gene)
+```
+**NOTE:** In the output from the `head()` function, we see that a single value for `gene_id` can map to many different (comma separated) values for `transcript_id(s)`. This means that we know the read counts on a gene level, but can not tell if one specific transcript gets more reads than another. Ideally, we would have read counts on a transcript level, but since this is not the case, we must and make the best of what we have. **SPOILER ALERT** Even with this simplification, **Naive Bayes** still performs pretty well!!
+
+Now we can determine how many **tRNA** and **pseduo_tRNAs** we removed by doing a little math with the output from `nrow()`. 
+
+```{r}
+nrow(rnaseq) - nrow(ensembl_gene)
+```
+
+So we removed 720 **tRNA** and **pseduo_tRNAs**.
+
+Now let's make our lives a little simpler by keeping the two columns we need `gene_id` and `posterior_mean_count`, and omitting all of the columns we do not need.
+
+```{r}
+ensembl_gene <- ensembl_gene[, c("gene_id", "posterior_mean_count")]
+head(ensembl_gene)
+```
+
+Lastly, we can make our life a lot easier later on if we rename the second column `posterior_mean_count` to just `count`.
+
+```{r}
+colnames(ensembl_gene)[2] <- "count"
+head(ensembl_gene)
+```
+
+---
+
+## Merging the RNA-seq data with Transcription Start Sites (TSSs)
+
+Because `ensembl_gene_df` does not have the TSS locations, we have to download them from Ensembl's [BioMart](http://uswest.ensembl.org/biomart/martview/), import them and merge them with the data we have. We can get the data from BioMart by selecting the **Ensembl Genes Database** for **Human Genes (GRCh38)** and, from the **Attributes** section, selecting **Gene stable ID**, **Chromosome/scaffold name** and **Transcription start site (TSS)** with [this query](http://uswest.ensembl.org/biomart/martview/44be506488a1d112e1b393c5b4f15624?VIRTUALSCHEMANAME=default&ATTRIBUTES=hsapiens_gene_ensembl.default.feature_page.ensembl_gene_id|hsapiens_gene_ensembl.default.feature_page.ensembl_gene_id_version|hsapiens_gene_ensembl.default.feature_page.ensembl_transcript_id|hsapiens_gene_ensembl.default.feature_page.ensembl_transcript_id_version|hsapiens_gene_ensembl.default.feature_page.chromosome_name|hsapiens_gene_ensembl.default.feature_page.start_position|hsapiens_gene_ensembl.default.feature_page.end_position|hsapiens_gene_ensembl.default.feature_page.transcription_start_site&FILTERS=&VISIBLEPANEL=attributepanel). So now let's load in the file with the TSS coordinates and look at the first few rows.
+
+```{r}
+tss_data <- read.delim(file="ensembl_geneids_to_tss.txt.gz", sep="\t", stringsAsFactors=FALSE, header=TRUE)
+head(tss_data)
+```
+
+Now, in order to make our lives, easier, let's give the columns we are interested in, `Gene stable ID`, `Chromosome/scaffold name` and `Transcription start site (TSS)` shorter names...
+
+```{r}
+colnames(tss_data)[c(1, 5, 9)] <- c("gene_id_stable", "chr", "tss")
+head(tss_data)
+```
+
+...and let's make our lives a little simpler by just keeping the columns we are interested in and omitting the rest.
+
+```{r}
+tss_data <- tss_data[,c("gene_id_stable", "chr", "tss")]
+head(tss_data)
+```
+
+**NOTE:** Because we downloaded **Gene stable IDs** from BioMart, we have to convert the gene IDs in `ensembl_gene` to stable gene ids. Stable gene IDs are the ENSG IDs that we have, but everything after the "dot" is excluded. For example, if we look at the first 5 gene IDs in `ensembl_gene` with `head()`...
+
+```{r}
+head(ensembl_gene$gene_id)
+```
+
+...we see that each gene id ends in "dot some number". We need to remove the "dot some number", so we'll do this with something called a **Regular Expression**. **Regular Expressions** can be very cryptic and are beyond the scope of this notebook, however, just know that they are like a "search and replace" tool on steroids. In this case, we'll use a **Regular Expression** to extract the stable IDs and put them into a new variable called `gene_id_stable`.
+
+```{r}
+## NOTE: I found out while I was doing this that Ensembl starts most gene names with "ENSG", but it starts genes
+## that are on the pseudo-autosomal region on the Y-chromosome with "ENSGR" because it allows them to add two 
+## sets of coordinates for a single gene (one set of coordinates for the X chromosome and one set for the Y chromosome)
+## to a GTF file (which is a file used by programs that count reads per gene).
+gene_id_stable <- sub(pattern="\\.\\d+", replacement="", ensembl_gene$gene_id)
+gene_id_stable[0:4]
+```
+
+Now that we have the stable gene IDs, let's add them to `ensembl_gene_df` by creating a new column called `gene_id_stable`. 
+
+```{r}
+ensembl_gene$gene_id_stable <- gene_id_stable
+head(ensembl_gene)
+```
+
+Now we can merge `ensembl_gene_df` with `tss_df` based on `gene_id_stable` using the `merge()` function.
+
+```{r}
+count_and_tss <- merge(ensembl_gene, tss_data, by="gene_id_stable")
+head(count_and_tss)
+```
+
+Now, if look at the output from the last call to `head()`, we see that a single value for `gene_id` and `gene_id_stable` can map to multiple values in `tss`. We also saw this earlier when we first created the `ensembl_gene_df` DataFrame. Since we only have read counts per gene, and not per transcript, we have to just pick a single TSS per `gene_id`. This is not ideal, but like I mentioned before in a **SPOILER ALERT**, our model still performs pretty well.
+
+```{r}
+count_and_tss <- count_and_tss[!duplicated(count_and_tss$gene_id_stable),]
+head(count_and_tss)
+```
+
+Now, for each gene, we need to add columns for the ChIP-seq data. These columns will tell us how much ChIP-seq enrichment is within a 2kb window (1kb upstream and 1 kb downstream) around the TSS. Because the easiest way to identify ChIP-seq enrichment within a window is using a separate program called **bedTools**, we will have to export the data we have in [**BED** format](https://m.ensembl.org/info/website/upload/bed.htmlhttps://m.ensembl.org/info/website/upload/bed.html). In essence, that means reordering the columns.
+
+```{r}
+tss_bed <- count_and_tss[,c("chr", "tss", "tss", "gene_id_stable")]
+head(tss_bed)
+```
+
+Now we need to add the prefix **chr** to all of the chromosome numbers.
+
+```{r}
+tss_bed$chr <- paste0("chr", tss_bed$chr)
+head(tss_bed)
+```
+
+Now that we have the data in **BED** format, we can write it to a file and use **bedTools** to find ChIP-seq enrichment near each TSS.
+
+```{r}
+write.table(tss_bed, file="tss.bed", sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+```
+
+I then used "bedTools" to find ChIP-seq peaks within 1kb of the TSSs. These are the commands that I used:
+```
+bedtools window -a tss.bed -b h3k27me3.bed.gz -w 2000 -c > tss_h3k27me3.bed
+
+bedtools window -a tss.bed -b h3k36me3.bed.gz -w 2000 -c > tss_h3k36me3.bed
+
+bedtools window -a tss.bed -b h3k4me1.bed.gz -w 2000 -c > tss_h3k4me1.bed
+
+bedtools window -a tss.bed -b h3k4me3.bed.gz -w 2000 -c > tss_h3k4me3.bed
+
+bedtools window -a tss.bed -b h3k9me3.bed.gz -w 2000 -c > tss_h3k9me3.bed
+```
+
+Now we can load in the new files that show if the modified histones are enriched near the TSSs and merge them together. We will start by loading in `tss_h3k27me3.bed` and looking at the first 5 rows.
+
+```{r}
+tss_h3k27me3 <- read.delim(file="tss_h3k27me3.bed", sep="\t", header=FALSE, stringsAsFactors=FALSE)
+head(tss_h3k27me3)
+```
+
+Since the new file does not have column names, we can add column names...
+
+```{r}
+colnames(tss_h3k27me3) <- c("chr", "start", "stop", "gene_id_stable", "h3k27me3")
+head(tss_h3k27me3)
+```
+
+...and, because we only need the last two columns (we need `gene_id_stable` to merge this file with `count_and_tss`, and we need `h3k27me3` because that has the number of enriched sites near the TSS), we can drop the first three columns.
+
+```{r}
+tss_h3k27me3 <- tss_h3k27me3[,c("gene_id_stable", "h3k27me3")]
+head(tss_h3k27me3)
+```
+
+Now we can merge the number of enriched sites with `count_and_tss`...
+
+```{r}
+count_and_tss <- merge(count_and_tss, tss_h3k27me3, by="gene_id_stable")
+head(count_and_tss)
+```
+
+Now we just do the same thing for all of the other ChIP-seq files...
+
+```{r}
+tss_h3k36me3 <- read.delim(file="tss_h3k36me3.bed", sep="\t", header=FALSE, stringsAsFactors=FALSE)
+colnames(tss_h3k36me3) <- c("chr", "start", "stop", "gene_id_stable", "h3k36me3")
+tss_h3k36me3 <- tss_h3k36me3[,c("gene_id_stable", "h3k36me3")]
+count_and_tss <- merge(count_and_tss, tss_h3k36me3, by="gene_id_stable")
+head(count_and_tss)
+```
+
+```{r}
+tss_h3k4me1 <- read.delim(file="tss_h3k4me1.bed", sep="\t", header=FALSE, stringsAsFactors=FALSE)
+colnames(tss_h3k4me1) <- c("chr", "start", "stop", "gene_id_stable", "h3k4me1")
+tss_h3k4me1 <- tss_h3k4me1[,c("gene_id_stable", "h3k4me1")]
+count_and_tss <- merge(count_and_tss, tss_h3k4me1, by="gene_id_stable")
+head(count_and_tss)
+```
+
+```{r}
+tss_h3k4me3 <- read.delim(file="tss_h3k4me3.bed", sep="\t", header=FALSE, stringsAsFactors=FALSE)
+colnames(tss_h3k4me3) <- c("chr", "start", "stop", "gene_id_stable", "h3k4me3")
+tss_h3k4me3 <- tss_h3k4me3[,c("gene_id_stable", "h3k4me3")]
+count_and_tss <- merge(count_and_tss, tss_h3k4me3, by="gene_id_stable")
+head(count_and_tss)
+```
+
+```{r}
+tss_h3k9me3 <- read.delim(file="tss_h3k9me3.bed", sep="\t", header=FALSE, stringsAsFactors=FALSE)
+colnames(tss_h3k9me3) <- c("chr", "start", "stop", "gene_id_stable", "h3k9me3")
+tss_h3k9me3 <- tss_h3k9me3[,c("gene_id_stable", "h3k9me3")]
+count_and_tss <- merge(count_and_tss, tss_h3k9me3, by="gene_id_stable")
+head(count_and_tss)
+```
+
+**BAM!!!** We merged the RNA-seq data with the ChIP-seq data.
+
+---
+
+## Classify genes as Active or Not Active
+
+Now we need to classify genes as "active" or "not active". However, first, let's draw a boxplot of the values in `count` to see how the genes are spread out.
+
+
+```{r}
+ggplot(data=count_and_tss, aes(x=1, y=count)) +
+  geom_boxplot() +
+  ylab("RNA-seq Reads per gene")
+```
+
+And we see that most genes have relative low read counts. We can also print out a summary of the values in `count` to see the quantiles.
+
+```{r}
+summary(count_and_tss$count)
+```
+
+Confirming what we saw in the boxplot, most genes have 0 reads. So let's see what happens if we say that if a gene has > 0 reads, it is *active*, otherwise it is *inactive*. We can do that by creating a new column `active` and setting it to `True` when there is more than 1 read associated with that gene. Otherwise we will set the value to `False`. 
+
+**NOTE:** I'm setting the threshold for *active* to be greater than 1 because, who knows, maybe random fragments aligned to genes and this might help filter out some noise.
+
+```{r}
+count_and_tss$active <- (count_and_tss$count > 1)
+head(count_and_tss)
+```
+
+Since `TRUE` is equal to `1`, and `FALSE` is equal to `0`, we can determine the number of active genes by adding together the values in `active`.
+
+```{r}
+sum(count_and_tss$active)
+```
+
+
+---
+
+## Visualizing the difference in ChIP-seq data for Active and Not Active Genes
+
+At this point, before we try to apply Naive Bayes to the data, we should graph the average counts for each ChIP-seq enrichment to see if there are differences between *active* and *inactive* genes. So, first, let's calculate the average the number of enriched sites for each ChIP-seq dataset, keeping separate tallies for *active* and *inactive* genes.
+
+```{r}
+## The general idea in the code below for calculating the average number of
+## of enriched Histone modifications is:
+##  1) We select only the rows in count_and_tss where the value in the column 
+##     'active' is True (or False) and add up the number of enriched sites.
+##  2) Divide by the number number of rows in count_and_tss where the value in 
+##     'active' is True (or False)
+##
+## For example, to cacluate the average number of enriched h3k27me3 sites 
+## near the TSSs of active genes, we select the 'active' genes with this...
+##
+##   count_and_tss[count_and_tss$active == True,]
+##
+## ...of the rows where 'active' == True, we then specify which column 
+## we are interested in, h3k27me3, by adding $h3k27me3 like this...
+##
+##   count_and_tss[count_and_tss$active == True,]$h3k27me3
+##
+## ...we then divide divide by the number of active genes with this...
+##
+##   / nrow(count_and_tss[count_and_tss$active == True])
+##
+
+## h3k27me3
+h3k27me3_active <- 
+  sum(count_and_tss[count_and_tss$active == TRUE,]$h3k27me3) / 
+                    nrow(count_and_tss[count_and_tss$active == TRUE,])
+h3k27me3_inactive <- 
+  sum(count_and_tss[count_and_tss$active == FALSE,]$h3k27me3) / 
+                    nrow(count_and_tss[count_and_tss$active == FALSE,])
+
+## h3k36me3
+h3k36me3_active <- 
+  sum(count_and_tss[count_and_tss$active == TRUE,]$h3k36me3) / 
+                    nrow(count_and_tss[count_and_tss$active == TRUE,])
+h3k36me3_inactive <- 
+  sum(count_and_tss[count_and_tss$active == FALSE,]$h3k36me3) / 
+                    nrow(count_and_tss[count_and_tss$active == FALSE,])
+
+## h3k4me1
+h3k4me1_active <- 
+  sum(count_and_tss[count_and_tss$active == TRUE,]$h3k4me1) / 
+                    nrow(count_and_tss[count_and_tss$active == TRUE,])
+h3k4me1_inactive <- 
+  sum(count_and_tss[count_and_tss$active == FALSE,]$h3k4me1) / 
+                    nrow(count_and_tss[count_and_tss$active == FALSE,])
+
+## h3k4me3
+h3k4me3_active <- 
+  sum(count_and_tss[count_and_tss$active == TRUE,]$h3k4me3) / 
+                    nrow(count_and_tss[count_and_tss$active == TRUE,])
+h3k4me3_inactive <- 
+  sum(count_and_tss[count_and_tss$active == FALSE,]$h3k4me3) / 
+                    nrow(count_and_tss[count_and_tss$active == FALSE,])
+
+## h3k9me3
+h3k9me3_active <- 
+  sum(count_and_tss[count_and_tss$active == TRUE,]$h3k9me3) / 
+                    nrow(count_and_tss[count_and_tss$active == TRUE,])
+h3k9me3_inactive <- 
+  sum(count_and_tss[count_and_tss$active == FALSE,]$h3k9me3) / 
+                    nrow(count_and_tss[count_and_tss$active == FALSE,])
+```
+
+Now let's combine all of the data into a new DataFrame that we can use as input to a graphing function...
+
+```{r}
+chip_counts_df <- data.frame(
+  chip = c("h3k27me3", "h3k27me3", 
+           "h3k36me3", "h3k36me3",
+           "h3k4me1", "h3k4me1",
+           "h3k4me3", "h3k4me3",
+           "h3k9me3", "h3k9me3"),
+  status = c("active", "inactive",
+             "active", "inactive",
+             "active", "inactive",
+             "active", "inactive",
+             "active", "inactive"),
+  avg_count = c(h3k27me3_active, h3k27me3_inactive, 
+            h3k36me3_active, h3k36me3_inactive, 
+            h3k4me1_active, h3k4me1_inactive,
+            h3k4me3_active, h3k4me3_inactive,
+            h3k9me3_active, h3k9me3_inactive))
+head(chip_counts_df)
+```
+
+And lastly, let's draw a bargraph that compares the total counts for each ChIP-seq dataset between *active* and *inactive* genes.
+
+```{r}
+ggplot(data=chip_counts_df, aes(x=chip, y=avg_count, fill=status)) +
+         geom_bar(stat="identity", position="dodge")
+```
+
+Generally speaking, it looks like, on average, there are more enriched regions of **H3K27me3** around the TSSs of *inactive* genes, and more enriched regions of **H3K36me3**, **H3K4me1** and **H3K4me3** around the TSSs of *active* genes. **H3K9me3** does not look very different between *active* and *inactive* genes.
+
+---
+
+## Applying Naive Bayes to our data
+
+First, let's split the data into independent and dependent variables. Traditionally, the independent variables (in this example, the ChIP-seq data are the independent variables because we are using them to make predictions) are stored in a variable called `X` (upper case **X**), and the dependent variable (`active`, because we are predicting this value) is stored in a variable called `y` (lower case **y**). Let's start by creating `X`.
+
+```{r}
+X <- count_and_tss[,c("h3k27me3", 
+                      "h3k36me3", 
+                      "h3k4me1", 
+                      "h3k4me3", 
+                      "h3k9me3")]
+rownames(X) <- count_and_tss$gene_id_stable
+head(X)
+```
+
+Now let's create `y`.
+
+```{r}
+y <- count_and_tss$active
+head(y)
+```
+
+Now that we have `X` and `y`, we can split them into training and testing datasets.
+
+```{r}
+## split the data into training and testing sets
+## 75% of the sample size
+sample_size <- floor(0.75 * nrow(X))
+
+set.seed(42)
+train_indices <- sample(1:nrow(X), size = sample_size)
+
+X_train <- X[train_indices,]
+X_test <- X[-train_indices,]
+y_train <- y[train_indices]
+y_test <- y[-train_indices]
+```
+
+Now the part we've been waiting for. We train the Naive Bayes model, test it and draw a [confusion matrix](https://youtu.be/Kdsp6soqA7o). Just 3 lines of code!!! 
+
+```{r}
+## NOTE: setting laplace is setting the value for alpha
+clf <- multinomial_naive_bayes(x=as.matrix(X_train), y=y_train, laplace=1)
+predictions <- predict(clf, newdata=as.matrix(X_test), type="class")
+confusionMatrix(reference=predictions, 
+                data=as.factor(y_test), 
+                dnn=c("True Label", "Predicted Label"))
+```
+
+So, off the...
+```{r}
+length(y_test)
+```
+
+...genes in the testing dataset, we correctly classified...
+
+```{r}
+sum(predictions == y_test)
+```
+...genes, or 81%, which is pretty good for a very simple model and the possibility that we are not always using the correct TSS for each gene.
+
+## DOUBLE BAM!!!!
+
+Now, I wouldn't be surprised if some of you are thinking, "What's the big deal? We already knew which genes were active an inactive from the RNA-seq data." And that is a very valid thing to think. However, consider that the method and approach that we just used can be applied to all kinds of situations in genomics. For example, if we only have a handful of known enhancer or promoter regions, we could use this method to identify more of them. And if we wanted to use a fancier machine learning method, like [Support Vector Machines](https://youtu.be/efR1C6CvhmE) or [Neural Networks](https://youtu.be/CqOfi41LfDw), we only need to make minor changes to those three lines of code that trained and tested the Naive Bayes classifier. So, even though the discovery we made in this Notebook isn't ground breaking, the method can lead you to so many more discoveries, and I think that is pretty amazing!!!!
+
+# TRIPLE BAM!!!
