@@ -13,6 +13,6 @@ December 2023: No meeting. Happy Holidays
 
 January 2024: Dr. Tong Wang. Predicting metabolomic profiles based on microbiome compositions and dietary compositions via both mechanistic models and machine learning methods
 
-February 2024: Hackathon (02/15 & 02/16)
+February 2024: TBD
 
 March 2024: Guillermo Gonzalez, Dockerhub
