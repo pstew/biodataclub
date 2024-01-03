@@ -3,18 +3,16 @@
 
 ### Tentative schedule:
 
-September 2023: TBA
+September 2023: Alex Soupir and Jordan Creed. scSpatialSIM: an R package for simulating biologically informed spatial point patterns
 
 October 2023: [Josh Starmer of StatQuest](https://www.youtube.com/c/joshstarmer)
 
-November 2023: Oscar Ospina (spatial transcriptomics)
+November 2023: Oscar Ospina (Spatial Transcriptomics)
 
-December 2023: no meeting happy holidays
+December 2023: No meeting. Happy Holidays
 
-January 2024: Dr. Tong Wang (predicting metabolomic profiles based on microbiome compositions and dietary compositions via both mechanistic models and machine learning methods)
+January 2024: Dr. Tong Wang. Predicting metabolomic profiles based on microbiome compositions and dietary compositions via both mechanistic models and machine learning methods
 
-February 2024: Hackathon???
+February 2024: Hackathon (02/15 & 02/16)
 
-March 2024: Guillermo?
-
-April 2024:
+March 2024: Guillermo Gonzalez, Dockerhub
