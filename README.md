@@ -11,7 +11,7 @@ November 2023: Oscar Ospina (Spatial Transcriptomics)
 
 December 2023: No meeting. Happy Holidays
 
-January 2024: Dr. Tong Wang. Predicting metabolomic profiles based on microbiome compositions and dietary compositions via both mechanistic models and machine learning methods
+January 2024: Dr. Tong Wang. Machine learning for precision nutrition
 
 February 2024: TBD
 
