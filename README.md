@@ -16,3 +16,21 @@ January 2024: Dr. Tong Wang. Machine learning for precision nutrition
 February 2024: TBD
 
 March 2024: Guillermo Gonzalez, Dockerhub
+
+April 2024: TBD
+
+May 2024: TBD (Richie ...?)
+
+June 2024: TBD
+
+July 2024: TBD
+
+August 2024: TBD
+
+September 2024: TBD
+
+October 2024: TBD
+
+November 2024: TBD
+
+December 12-13, 2024: Hackathon
