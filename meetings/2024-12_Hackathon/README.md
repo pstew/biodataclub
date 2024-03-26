@@ -2,10 +2,10 @@
 
 ## Hackathon Details
 
-Registration for the Bio-Data Club's Annual Hackathon 
+Registration for the Bio-Data Club's Annual Hackathon will open soon.
 <!-- [is now open](https://forms.gle/6vBS4v3dmHbLJznJA) -->
-will open soon! 
-The hackathon will commence  virtually on Thursday, December 12th 2024 at 9am and conclude with virtual project presentations on Friday, December 13th at 3pm. A hackathon is an event in which participants come together to build a software product during a short period of time. [Here is a short article](https://www.rasmussen.edu/degrees/technology/blog/what-is-a-hackathon/) describing what you can expect. [Previous year’s hackathon](https://github.com/pstew/biodataclub/tree/master/meetings/2022-12_hackathon) featured around 50 participants working collaboratively on **4** projects. 
+ 
+The hackathon will commence  virtually on Thursday, December 12th, 2024 at 9am and conclude with virtual project presentations on Friday, December 13th at 3pm. A hackathon is an event in which participants come together to build a software product during a short period of time. [Here is a short article](https://www.rasmussen.edu/degrees/technology/blog/what-is-a-hackathon/) describing what you can expect. [Previous year’s hackathon](https://github.com/pstew/biodataclub/tree/master/meetings/2022-12_hackathon) featured around 50 participants working collaboratively on **4** projects. 
 
 Participation is completely optional, and Moffitt employees are under no obligation to participate. However, this will be a fun event and we encourage everyone to sign up! The event will be very low stakes, and we encourage friendly competition between teams. The winning team will be awarded a small prize and bragging rights for the year. Since work on hackathon projects will occur during an intensive 1.5 day period, please make sure to obtain permission to participate from your supervisor or PI. 
 
