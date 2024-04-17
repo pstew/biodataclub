@@ -17,7 +17,7 @@ February 2024: TBD
 
 March 2024: Dr. Guillermo Gonzalez, Dockerhub
 
-April 2024: TBD
+April 2024: Dr. Guillermo Gonzalez, Docker Containers Best Practices
 
 May 2024: Dr. Mark Robertson-Tessi
 
