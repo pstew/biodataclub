@@ -7,21 +7,21 @@ September 2023: Alex Soupir and Jordan Creed. scSpatialSIM: an R package for sim
 
 October 2023: [Josh Starmer of StatQuest](https://www.youtube.com/c/joshstarmer)
 
-November 2023: Dr. Oscar Ospina (Spatial Transcriptomics)
+November 2023: Dr. Oscar Ospina - Spatial Transcriptomics
 
 December 2023: No meeting. Happy Holidays
 
-January 2024: Dr. Tong Wang. Machine learning for precision nutrition
+January 2024: Dr. Tong Wang - Machine learning for precision nutrition
 
 February 2024: TBD
 
-March 2024: Dr. Guillermo Gonzalez, Dockerhub
+March 2024: Dr. Guillermo Gonzalez - Dockerhub
 
-April 2024: Dr. Guillermo Gonzalez, Docker Containers Best Practices
+April 2024: Dr. Guillermo Gonzalez - Docker Containers Best Practices
 
-May 2024: Dr. Mark Robertson-Tessi
+May 2024: Dr. Mark Robertson-Tessi - Using virtual trials for dynamic decision support
 
-June 2024: TBD
+June 2024: Richie Reich
 
 July 2024: TBD
 
@@ -29,7 +29,7 @@ August 2024: TBD
 
 September 2024: TBD
 
-October 2024: TBD
+October 2024: Chia-Ho Cheng - Single Cell.
 
 November 2024: TBD
 
