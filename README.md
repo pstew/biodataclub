@@ -21,7 +21,7 @@ April 2024: Dr. Guillermo Gonzalez - Docker Containers Best Practices
 
 May 2024: Dr. Mark Robertson-Tessi - Using virtual trials for dynamic decision support
 
-June 2024: Richie Reich
+June 2024: Dr. Richie Reich - Facilitating Data Analysis Through the Use of Automated Tools: B-STAR
 
 July 2024: TBD
 
