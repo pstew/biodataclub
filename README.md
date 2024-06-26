@@ -23,9 +23,9 @@ May 2024: Dr. Mark Robertson-Tessi - Using virtual trials for dynamic decision s
 
 June 2024: Dr. Richie Reich - Facilitating Data Analysis Through the Use of Automated Tools: B-STAR
 
-July 2024: TBD
+July 2024: B-STAR (continued)
 
-August 2024: TBD
+August 2024: Stewart Lab?
 
 September 2024: TBD
 
