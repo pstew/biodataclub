@@ -25,12 +25,12 @@ June 2024: Dr. Richie Reich - Facilitating Data Analysis Through the Use of Auto
 
 July 2024: B-STAR (continued)
 
-August 2024: Stewart Lab?
+August 2024: TBD - [HPC admins?]
 
-September 2024: TBD
+September 2024: TBD - [Microbiome / 16s pipeline?]
 
 October 2024: Chia-Ho Cheng - Single Cell.
 
-November 2024: TBD
+November 2024: TBD - [Stewart Lab?]
 
 December 12-13, 2024: Hackathon
