@@ -25,12 +25,16 @@ June 2024: Dr. Richie Reich - Facilitating Data Analysis Through the Use of Auto
 
 July 2024: B-STAR (continued)
 
-August 2024: TBD - [HPC admins?]
+August 2024: Intro to the HPC 
 
-September 2024: TBD - [Microbiome / 16s pipeline?]
+September 2024: No meeting.
 
 October 2024: Chia-Ho Cheng - Single Cell.
 
-November 2024: TBD - [Stewart Lab?]
+November 2024: Youngchul and Jin - Microbiome / 16s pipeline (meeting moved to 1 PM)
 
 December 12-13, 2024: Hackathon
+
+January 2025: Julia - "Hard-Core Stats"
+
+February 2025: Mehmet - HPC hands-on guide to building custom containers from base containers
