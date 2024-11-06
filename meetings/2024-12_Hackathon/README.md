@@ -2,8 +2,8 @@
 
 ## Hackathon Details
 
-Registration for the Bio-Data Club's Annual Hackathon will open soon.
-<!-- [is now open](https://forms.gle/6vBS4v3dmHbLJznJA) -->
+Registration for the Bio-Data Club's Annual Hackathon 
+[is now open](https://forms.office.com/r/xaXkA6aPMW)!
  
 The hackathon will commence  virtually on Thursday, December 12th, 2024 at 9am and conclude with virtual project presentations on Friday, December 13th at 3pm. A hackathon is an event in which participants come together to build a software product during a short period of time. [Here is a short article](https://www.rasmussen.edu/degrees/technology/blog/what-is-a-hackathon/) describing what you can expect. [Previous year’s hackathon](https://github.com/pstew/biodataclub/tree/master/meetings/2022-12_hackathon) featured around 50 participants working collaboratively on **4** projects. 
 
@@ -19,12 +19,12 @@ Dr. Brooke Fridley and the Department of Biostatistics and Bioinformatics (Bio2)
 
 ## Registration
 Registration is required and will allow us to send hackathon-related communications and calendar/zoom invites. Please register 
-<!-- [with this form](https://forms.gle/6vBS4v3dmHbLJznJA)  -->
+[with this form](https://forms.office.com/r/xaXkA6aPMW) 
 (*coming soon*) 
 by Monday, December 9th 2024 at 12pm or you may not be able to participate. 
 
 ## Projects
-The list of projects for this year's hackathon [can be found here](https://github.com/pstew/biodataclub/blob/master/meetings/2024-12_hackathon/Project_descriptions.md). 
+The list of projects for this year's hackathon [can be found here](https://github.com/pstew/biodataclub/blob/master/meetings/2024-12_Hackathon/Project_descriptions.md). 
 
 ## Rules
 - Hackathon teams are organized around projects. 
