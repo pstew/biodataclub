@@ -20,7 +20,7 @@ Dr. Brooke Fridley and the Department of Biostatistics and Bioinformatics (Bio2)
 ## Registration
 Registration is required and will allow us to send hackathon-related communications and calendar/zoom invites. Please register 
 [with this form](https://forms.office.com/r/xaXkA6aPMW) 
-(*coming soon*) 
+<!-- (*coming soon*)  -->
 by Monday, December 9th 2024 at 12pm or you may not be able to participate. 
 
 ## Projects
