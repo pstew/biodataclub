@@ -32,19 +32,32 @@ is a plus, but not a requirement.
 ### Project Lead: [Deniece Williams](Deniece.Williams@moffitt.org)
 
 **Background**: 
-Send a unique report per recipient with positive patient comments that name the
-recipient. First, pull positive comments with the provider's name attached and
-upload them to the portal. If the patient name/MRN matches the named employee
-who accessed their files, then this comment is matched to the provider's name
-and email address. Comments with matching provider contact info are loaded into
-a separate portal for review before being sent to employees' emails.
+The data analysts that work on the Patient Experience Optimization team analyze
+and distribute the summarized results of patient survey data.  In addition to
+quantitative measures of patient satisfaction, we also receive open-ended
+responses to questions about the patient experience during their visit to our
+hospital.  Press Ganey uses a NLP to assess the comment sentiment and classify
+it as positive, negative, mixed or neutral.  The goal of this project is to
+develop a streamlined approach to recognize named providers within  positive
+patient comments. Once the electronic health record (EHR) verifies a match
+between the patient, the program and the named provider, the comments will be
+distributed to the provider’s inbox through an automated process.
  
 **Project Significance**: 
-Focus on positive comments to spread kindness, appreciation, and recognition to
-providers.  Fight staff burnout.   Encourage.
+While most comments of the comments received are positive, they are often
+overshadowed by the negative ones.  Despite efforts to highlight and forward
+along positive comments, many providers are unaware of the appreciation their
+patients have for them and their work.  Our team, currently, has no process in
+place that would allow us to automate this process.  Instead, we rely on
+manually searching through the 1000s of comments we receive on a weekly basis
+and then posting on an intranet page with hopes that those that are mentioned
+will see them.
  
 **Technical Specifications or Programming background**: 
-Quarto/R Markdown, EHR, PowerBI
+Our team needs help from team members with the technical skills to automate  the
+process.  We have experience using R and Quarto.  We would like for participants
+to be familiar with language intelligence, data visualization and extracting
+data from the EHR.
 
 ***
 
