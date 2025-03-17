@@ -29,7 +29,7 @@ August 2024: Intro to the HPC
 
 September 2024: No meeting.
 
-October 2024: Chia-Ho Cheng - Single Cell.
+October 2024: rescheduled.
 
 November 2024: Youngchul and Jin - Microbiome / 16s pipeline (meeting moved to 1 PM)
 
@@ -38,3 +38,7 @@ December 12-13, 2024: Hackathon
 January 2025: Julia - "Hard-Core Stats"
 
 February 2025: Mehmet - HPC hands-on guide to building custom containers from base containers
+
+March 2025: Chia-Ho Cheng - Single Cell.
+
+April 2025: TBD
