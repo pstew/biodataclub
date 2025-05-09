@@ -42,3 +42,7 @@ February 2025: Mehmet - HPC hands-on guide to building custom containers from ba
 March 2025: Chia-Ho Cheng - Single Cell.
 
 April 2025: TBD
+
+May 2025: Joe Gehring - overview of Moffitt’s GitHub Enterprise Cloud instance
+
+June 2025: Alyssa Obermayer - Shiny 101
