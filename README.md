@@ -46,3 +46,15 @@ April 2025: TBD
 May 2025: Joe Gehring - overview of Moffitt’s GitHub Enterprise Cloud instance
 
 June 2025: Alyssa Obermayer - Shiny 101
+
+July 2025: Tyler Renelle
+
+August 2025: Alex Soupir - vLLM on HPC
+
+September 2025: No meeting.
+
+October 2025: Tim Shaw & Alyssa Obermayer - ShinyEvents: A Tool That Can Harmonize Longitudinal Data for Real-World Survival Estimation
+
+November 2025: TBD
+
+December 2025: Hackathon
