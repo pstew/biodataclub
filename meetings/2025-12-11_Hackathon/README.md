@@ -36,9 +36,9 @@ The list of projects for this year's hackathon [can be found here](https://githu
 - Each team will have 5 minutes to present their final product on Friday. Product demonstrations or slides will be acceptable.
 - A panel of judges will pick the winning project. 
 - The top 3 projects will be picked by the judges using the following items:
-  - Reproducibility
-  - Usability
-  - Scientific value
+    - Reproducibility
+    - Usability
+    - Scientific value
 - No work (e.g. writing code, analyzing data) should be performed prior to the start of the hackathon
   - Pre-training models, pre-processing data, or the addition of completely new features to existing code will be acceptable. 
 - Participants agree to follow the [code of conduct](https://github.com/pstew/biodataclub/blob/master/meetings/2025-12-11_Hackathon/CoC/code_of_conduct.md).
@@ -56,23 +56,21 @@ The list of projects for this year's hackathon [can be found here](https://githu
 ## Agenda
 
 ### Day 1 (Thursday December 11th, 2025)
-- **10am - 10:15am** Hackathon Kickoff 
-<!-- (Zoom link: https://moffitt.zoom.us/j/95630513817) -->
-  - Introduce teams and projects
-  - Time for questions
-  - Break into teams and begin hacking
+- **10am - 10:15am** Hackathon Kickoff  <!-- (Zoom link: https://moffitt.zoom.us/j/95630513817) -->
+    - Introduce teams and projects
+    - Time for questions
+    - Break into teams and begin hacking
 - **9:15am - ??** Teams work on projects
 
 ### Day 2 (Friday, December 12th, 2025)
 - **?? - 3pm** Teams continue working
-- **3pm - 5pm** Project Presentations and Awards 
-<!-- (Zoom link: https://moffitt.zoom.us/j/98089438126) -->
-  - Project demonstrations
-  - Judges convene briefly to pick the winning project
-  - Winners announced, prizes awarded
-  - Meeting adjournment
+- **3pm - 5pm** Project Presentations and Awards  <!-- (Zoom link: https://moffitt.zoom.us/j/98089438126) -->
+    - Project demonstrations
+    - Judges convene briefly to pick the winning project
+    - Winners announced, prizes awarded
+    - Meeting adjournment
 - **5pm - 6pm** Hackathon happy hour at [World of Beer](https://worldofbeer.com/locations/fowler/) (2815 E Fowler Ave. Tampa, FL 33612)
-  - Attendance is optional for hackathon participants
+     - Attendance is optional for hackathon participants
 
 ## Hackathon Organizing Committee
 Richie Reich, Rodrigo Carvajal, Guillermo Gonzalez-Calderon, Nathan Van Bibber, and Alex Soupir
