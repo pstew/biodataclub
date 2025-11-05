@@ -1,9 +1,9 @@
-# December 2025 The Sixth Annual Bio-Data Club Hackathon
+# December 2025: The Sixth Annual Bio-Data Club Hackathon
 
 ## Hackathon Details
 
-<!-- Registration for the Bio-Data Club's Annual Hackathon 
-[is now open](https://forms.office.com/r/xaXkA6aPMW)! -->
+Registration for the Bio-Data Club's Annual Hackath
+[is now open](https://forms.office.com/r/d2cTL5tDvc)!
  
 The hackathon will commence  virtually on Thursday, December 11th, 2025 at 10am and conclude with virtual project presentations on Friday, December 12th at 3pm. A hackathon is an event in which participants come together to build a software product during a short period of time. [Here is a short article](https://www.rasmussen.edu/degrees/technology/blog/what-is-a-hackathon/) describing what you can expect. [Previous year’s hackathon](https://github.com/pstew/biodataclub/tree/master/meetings/2024-12_Hackathon) featured around 40 participants working collaboratively on **6** projects. 
 
@@ -19,13 +19,13 @@ Dr. Brooke Fridley and the Department of Biostatistics and Bioinformatics (Bio2)
 
 ## Registration
 Registration is required and will allow us to send hackathon-related communications and calendar/zoom invites. Please register 
-<!-- [with this form](https://forms.office.com/r/xaXkA6aPMW)  -->
-(*coming soon*) 
+[with this form](https://forms.office.com/r/d2cTL5tDvc)
+<!-- (*coming soon*)  -->
 by Monday, December 8th 2025 at 12pm or you may not be able to participate. 
 
 ## Projects
-(*coming soon*)
-<!-- The list of projects for this year's hackathon [can be found here](https://github.com/pstew/biodataclub/blob/master/meetings/2025-12-11_Hackathon/Project_descriptions.md).  -->
+<!-- (*coming soon*) -->
+The list of projects for this year's hackathon [can be found here](https://github.com/pstew/biodataclub/blob/master/meetings/2025-12-11_Hackathon/Project_descriptions.md).
 
 ## Rules
 - Hackathon teams are organized around projects. 
@@ -71,7 +71,7 @@ by Monday, December 8th 2025 at 12pm or you may not be able to participate.
   - Judges convene briefly to pick the winning project
   - Winners announced, prizes awarded
   - Meeting adjournment
-- **5pm - 6pm** Hackathon happy hour at [Mr. Dunderbak's](https://dunderbaksbeer.wordpress.com/)
+- **5pm - 6pm** Hackathon happy hour at [World of Beer](https://worldofbeer.com/locations/fowler/) (2815 E Fowler Ave. Tampa, FL 33612)
   - Attendance is optional for hackathon participants
 
 ## Hackathon Organizing Committee
