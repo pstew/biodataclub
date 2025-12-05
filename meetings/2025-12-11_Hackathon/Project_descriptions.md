@@ -45,7 +45,7 @@ R script, R Shiny app, and Web Development
 
 ## Utility of generative AI for generation of patient informational videos
 
-### Project Leads: [Jamie Teer](mailto:jamie.teer@moffitt.org) and [Christine Vince](mailto:christine.vinci@moffitt.org)
+### Project Leads: [Jamie Teer](mailto:jamie.teer@moffitt.org) and [Christine Vinci](mailto:christine.vinci@moffitt.org)
 
 **Background**: 
 Engagement, education, and interaction with the public is an important part of the Moffitt mission. 
