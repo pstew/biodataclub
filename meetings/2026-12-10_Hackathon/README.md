@@ -29,10 +29,10 @@ Participation is completely voluntary; however, we encourage anyone with an inte
 ## Registration
 Registration is required and will allow us to send hackathon-related communications and event calendar invitations.
  
-Please register 
-<!-- [with this form](https://forms.office.com/...) -->
 (*coming soon*)
-by Monday, December 7, 2026, at 12:00 PM. 
+<!-- [Register Here](https://forms.office.com/...) -->
+
+Please register by Monday, December 7, 2026, at 12:00 PM. 
 
 ## Projects
 (*coming soon*)
@@ -53,7 +53,6 @@ by Monday, December 7, 2026, at 12:00 PM.
   - Teams must document the AI tools, models, prompts, and datasets used in their work.
   - AI-generated outputs should be reviewed and validated by team members.
   - All use of AI must comply with institutional policies and data privacy requirements.
-
 - Participants agree to follow the [code of conduct](https://github.com/pstew/biodataclub/blob/master/meetings/2026-12-10_Hackathon/CoC/code_of_conduct.md).
 
 
@@ -61,7 +60,6 @@ by Monday, December 7, 2026, at 12:00 PM.
 
 ### Day 1 (Thursday, December 10, 2026)
 - **10am - 10:15am** Hackathon Kickoff 
-<!-- (Zoom link: https://moffitt.zoom.us/j/95630513817) -->
   - Introduce teams and projects
   - Time for questions
   - Break into teams and begin work
@@ -70,7 +68,6 @@ by Monday, December 7, 2026, at 12:00 PM.
 ### Day 2 (Friday, December 11, 2026)
 - **Morning - 3:00 PM** Teams continue working
 - **3:00 PM - 5:00 PM** Project Presentations and Awards 
-<!-- (Zoom link: https://moffitt.zoom.us/j/98089438126) -->
   - Project demonstrations
   - Judges convene briefly to select the winning project
   - Winners announced and prizes awarded
