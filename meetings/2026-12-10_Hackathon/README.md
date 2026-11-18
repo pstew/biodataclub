@@ -29,14 +29,14 @@ Participation is completely voluntary; however, we encourage anyone with an inte
 ## Registration
 Registration is required and will allow us to send hackathon-related communications and event calendar invitations.
  
-(*coming soon*)
-<!-- [Register Here](https://forms.office.com/...) -->
+<!-- (*coming soon*) -->
+[Register Here](https://forms.cloud.microsoft/r/sgijxWB3PE)
 
 Please register by Monday, December 7, 2026, at 12:00 PM. 
 
 ## Projects
-(*coming soon*)
-<!-- The list of projects for this year's hackathon [can be found here](https://github.com/pstew/biodataclub/blob/master/meetings/2026-12-10_Hackathon/Project_descriptions.md). -->
+<!-- (*coming soon*) -->
+The list of projects for this year's hackathon [can be found here](https://github.com/pstew/biodataclub/blob/master/meetings/2026-12-10_Hackathon/Project_descriptions.md).
 
 ## Rules
 - Teams will have approximately 1.5 days to develop a deliverable product.
@@ -72,9 +72,8 @@ Please register by Monday, December 7, 2026, at 12:00 PM.
   - Judges convene briefly to select the winning project
   - Winners announced and prizes awarded
   - Event adjournment
-- **5pm - 6pm** Hackathon happy hour at [Mr. Dunderbak's](https://dunderbaksbeer.wordpress.com/)
+- **5pm - 6pm** Hackathon happy hour at [Mr. Dunderbak's](https://dunderbaksbeer.wordpress.com/) or World of Beer
   - Attendance is optional for hackathon participants
 
 ## Hackathon Organizing Committee
 Richie Reich, Rodrigo Carvajal, Guillermo Gonzalez-Calderon, Nathan Van Bibber, and Alex Soupir
-
